@@ -144,7 +144,7 @@ export default function Dashboard() {
             <div className="flex-1 flex flex-col">
 
                 {/* Topbar */}
-                <header className="bg-white border-b border-slate-200 px-6 md:px-10 py-4 flex items-center justify-between">
+                <header className="bg-white border-b border-slate-200 px-3 sm:px-6 md:px-10 py-4 flex items-center justify-between">
                     <div>
                         <h1 className="text-xl font-semibold text-slate-900">
                             Welcome{user?.name ? `, ${user.name}` : ''} 👋
@@ -157,7 +157,7 @@ export default function Dashboard() {
                 </header>
 
                 {/* Mobile nav */}
-                <div className="md:hidden bg-white border-b border-slate-200 px-6 py-3">
+                <div className="md:hidden bg-white border-b border-slate-200 px-3 py-3">
                     <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
                             <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center">
@@ -179,7 +179,7 @@ export default function Dashboard() {
                     </nav>
                 </div>
 
-                <main className="flex-1 px-6 md:px-10 py-8 max-w-4xl w-full mx-auto">
+                <main className="flex-1 px-3 sm:px-6 md:px-10 py-8 max-w-4xl w-full mx-0 sm:mx-auto">
 
                     {/* Stats */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
