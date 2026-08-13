@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+:root {
+    color-scheme: light;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.task-wrap {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}

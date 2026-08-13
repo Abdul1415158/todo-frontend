@@ -226,7 +226,7 @@ export default function Dashboard() {
                                 {tasks.map((task) => (
                                     <li
                                         key={task._id}
-                                        className="flex items-center gap-3 px-5 py-4 hover:bg-slate-50 transition"
+                                        className="flex min-w-0 items-center gap-3 px-5 py-4 hover:bg-slate-50 transition"
                                     >
                                         <button
                                             onClick={() => toggleTask(task._id, task.completed)}
@@ -236,11 +236,11 @@ export default function Dashboard() {
                                                 }`}
                                         />
                                         {editingTaskId === task._id ? (
-                                            <div className="flex-1 flex items-center gap-3">
+                                            <div className="flex-1 min-w-0 flex items-center gap-3">
                                                 <input
                                                     value={editingTaskTitle}
                                                     onChange={(e) => setEditingTaskTitle(e.target.value)}
-                                                    className="flex-1 px-3 py-2 rounded-lg border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
+                                                    className="flex-1 min-w-0 px-3 py-2 rounded-lg border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
                                                 />
                                                 <button
                                                     onClick={() => saveEditing(task._id)}
@@ -259,20 +259,20 @@ export default function Dashboard() {
                                         ) : (
                                             <>
                                                 <span
-                                                    className={`flex-1 text-sm ${task.completed ? 'line-through text-slate-400' : 'text-slate-800'
-                                                        }`}
+                                                    className={`flex-1 min-w-0 text-sm whitespace-normal break-words ${task.completed ? 'line-through text-slate-400' : 'text-slate-800'}`}
+                                                    style={{ overflowWrap: 'anywhere', wordBreak: 'break-word' }}
                                                 >
                                                     {task.title}
                                                 </span>
                                                 <button
                                                     onClick={() => startEditing(task)}
-                                                    className="text-slate-500 hover:text-slate-900 text-sm transition"
+                                                    className="text-slate-500 hover:text-slate-900 text-sm transition shrink-0"
                                                 >
                                                     Edit
                                                 </button>
                                                 <button
                                                     onClick={() => deleteTask(task._id)}
-                                                    className="text-slate-400 hover:text-red-600 text-sm transition"
+                                                    className="text-slate-400 hover:text-red-600 text-sm transition shrink-0"
                                                 >
                                                     Delete
                                                 </button>
