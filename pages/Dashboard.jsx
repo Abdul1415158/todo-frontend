@@ -236,22 +236,23 @@ export default function Dashboard() {
                                                 }`}
                                         />
                                         {editingTaskId === task._id ? (
-                                            <div className="flex-1 min-w-0 flex items-center gap-3">
+                                            <div className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3">
                                                 <input
                                                     value={editingTaskTitle}
                                                     onChange={(e) => setEditingTaskTitle(e.target.value)}
                                                     className="flex-1 min-w-0 px-3 py-2 rounded-lg border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
+                                                    style={{ maxWidth: '100%', overflowWrap: 'anywhere', wordBreak: 'break-word' }}
                                                 />
                                                 <button
                                                     onClick={() => saveEditing(task._id)}
                                                     disabled={savingEdit}
-                                                    className="px-3 py-2 rounded-lg bg-slate-900 text-white text-sm hover:bg-slate-800 transition disabled:opacity-50"
+                                                    className="shrink-0 px-3 py-2 rounded-lg bg-slate-900 text-white text-sm hover:bg-slate-800 transition disabled:opacity-50"
                                                 >
                                                     {savingEdit ? 'Saving…' : 'Save'}
                                                 </button>
                                                 <button
                                                     onClick={cancelEditing}
-                                                    className="px-3 py-2 rounded-lg border border-slate-300 text-slate-700 text-sm hover:bg-slate-50 transition"
+                                                    className="shrink-0 px-3 py-2 rounded-lg border border-slate-300 text-slate-700 text-sm hover:bg-slate-50 transition"
                                                 >
                                                     Cancel
                                                 </button>
