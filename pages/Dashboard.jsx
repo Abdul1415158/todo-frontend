@@ -198,18 +198,18 @@ export default function Dashboard() {
                     </div>
 
                     {/* Add task */}
-                    <form onSubmit={handleAddTask} className="flex gap-3 mb-6">
+                    <form onSubmit={handleAddTask} className="flex flex-col gap-3 mb-6 sm:flex-row">
                         <input
                             type="text"
                             value={newTask}
                             onChange={(e) => setNewTask(e.target.value)}
                             placeholder="Add a new task…"
-                            className="flex-1 px-4 py-2.5 rounded-lg border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
+                            className="w-full flex-1 min-w-0 px-4 py-2.5 rounded-lg border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
                         />
                         <button
                             type="submit"
                             disabled={adding}
-                            className="px-5 py-2.5 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-800 active:scale-[0.98] transition disabled:opacity-50"
+                            className="shrink-0 px-5 py-2.5 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-800 active:scale-[0.98] transition disabled:opacity-50"
                         >
                             {adding ? 'Adding…' : 'Add'}
                         </button>
@@ -236,26 +236,29 @@ export default function Dashboard() {
                                                 }`}
                                         />
                                         {editingTaskId === task._id ? (
-                                            <div className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3">
-                                                <input
+                                            <div className="flex-1 min-w-0 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                                                <textarea
                                                     value={editingTaskTitle}
                                                     onChange={(e) => setEditingTaskTitle(e.target.value)}
-                                                    className="flex-1 min-w-0 px-3 py-2 rounded-lg border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
+                                                    rows={1}
+                                                    className="w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-slate-300 px-3 py-2 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
                                                     style={{ maxWidth: '100%', overflowWrap: 'anywhere', wordBreak: 'break-word' }}
                                                 />
-                                                <button
-                                                    onClick={() => saveEditing(task._id)}
-                                                    disabled={savingEdit}
-                                                    className="shrink-0 px-3 py-2 rounded-lg bg-slate-900 text-white text-sm hover:bg-slate-800 transition disabled:opacity-50"
-                                                >
-                                                    {savingEdit ? 'Saving…' : 'Save'}
-                                                </button>
-                                                <button
-                                                    onClick={cancelEditing}
-                                                    className="shrink-0 px-3 py-2 rounded-lg border border-slate-300 text-slate-700 text-sm hover:bg-slate-50 transition"
-                                                >
-                                                    Cancel
-                                                </button>
+                                                <div className="flex items-center gap-2 sm:gap-3">
+                                                    <button
+                                                        onClick={() => saveEditing(task._id)}
+                                                        disabled={savingEdit}
+                                                        className="shrink-0 px-3 py-2 rounded-lg bg-slate-900 text-white text-sm hover:bg-slate-800 transition disabled:opacity-50"
+                                                    >
+                                                        {savingEdit ? 'Saving…' : 'Save'}
+                                                    </button>
+                                                    <button
+                                                        onClick={cancelEditing}
+                                                        className="shrink-0 px-3 py-2 rounded-lg border border-slate-300 text-slate-700 text-sm hover:bg-slate-50 transition"
+                                                    >
+                                                        Cancel
+                                                    </button>
+                                                </div>
                                             </div>
                                         ) : (
                                             <>
