@@ -182,7 +182,7 @@ export default function Dashboard() {
                 <main className="flex-1 px-6 md:px-10 py-8 max-w-4xl w-full mx-auto">
 
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-4 mb-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
                         <div className="bg-white border border-slate-200 rounded-2xl p-5">
                             <p className="text-sm text-slate-500">Total</p>
                             <p className="text-2xl font-semibold text-slate-900 mt-1">{tasks.length}</p>

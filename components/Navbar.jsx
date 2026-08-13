@@ -6,6 +6,7 @@ export default function Navbar() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleLogout = () => {
     logout()
@@ -45,6 +46,17 @@ export default function Navbar() {
         </Link>
       </nav>
 
+      {/* Mobile menu button */}
+      <button
+        onClick={() => setMobileOpen((v) => !v)}
+        className="md:hidden ml-2 p-2 rounded-md hover:bg-slate-100 transition"
+        aria-label="Toggle menu"
+      >
+        <svg className="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
       {/* User menu */}
       <div className="relative">
         <button
@@ -81,6 +93,34 @@ export default function Navbar() {
           </div>
         )}
       </div>
+      {/* Mobile nav (small screens) */}
+      {mobileOpen && (
+        <nav className="md:hidden absolute left-0 right-0 top-full bg-white border-t border-slate-200 shadow-md z-20">
+          <div className="flex flex-col py-2">
+            <Link
+              to="/dashboard"
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
+            >
+              Tasks
+            </Link>
+            <Link
+              to="/analytics"
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
+            >
+              Analytics
+            </Link>
+            <Link
+              to="/settings"
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
+            >
+              Settings
+            </Link>
+          </div>
+        </nav>
+      )}
     </header>
   )
 }
